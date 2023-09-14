@@ -15,7 +15,7 @@ export default function LeftSidebar() {
           pClassName='text-light-1 max-lg:hidden'
         />
         <div className='pl-2'>
-          <CreatePostButton />
+          <CreatePostButton displayMd='block' />
         </div>
       </div>
       <div className='px-6'>

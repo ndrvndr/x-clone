@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const threadSchema = new mongoose.Schema({
+const tweetSchema = new mongoose.Schema({
   text: {
     type: String,
     required: true,
@@ -24,11 +24,11 @@ const threadSchema = new mongoose.Schema({
   children: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Thread",
+      ref: "Tweet",
     },
   ],
 });
 
-const Tweet = mongoose.models.Thread || mongoose.model("Twit", threadSchema);
+const Tweet = mongoose.models.Tweet || mongoose.model("Tweet", tweetSchema);
 
 export default Tweet;
