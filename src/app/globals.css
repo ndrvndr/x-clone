@@ -87,7 +87,7 @@
   }
 
   .rightsidebar {
-    @apply sticky right-0 top-0 z-20 flex h-screen w-[389px] flex-col justify-between gap-5 overflow-auto bg-dark-1 pl-10 pb-6 pt-3 max-xl:hidden;
+    @apply sticky right-0 top-0 z-20 flex h-screen w-[389px] flex-col gap-5 overflow-auto bg-dark-1 pl-10 pb-6 pt-3 max-xl:hidden;
   }
 }
 

@@ -1,16 +1,28 @@
 "use client";
-import { sidebarLinks } from "@/constants";
 import { useAuth } from "@clerk/nextjs";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import CreatePostButton from "./CreatePostButton";
 
-export default function SidebarLinks() {
+interface NavigationLinksProps {
+  links: {
+    icon: JSX.Element;
+    iconFill: JSX.Element;
+    label: string;
+    route: string;
+  }[];
+  linkClassName: string;
+  pClassName: string;
+}
+
+export default function NavigationLinks(props: NavigationLinksProps) {
+  const { links, linkClassName, pClassName } = props;
+
   const pathname = usePathname();
   const { userId } = useAuth();
+
   return (
-    <div className='flex w-full flex-1 flex-col gap-1 px-6'>
-      {sidebarLinks.map((link) => {
+    <>
+      {links.map((link) => {
         const isActive =
           (pathname.includes(link.route) && link.route.length > 1) ||
           pathname === link.route;
@@ -18,19 +30,12 @@ export default function SidebarLinks() {
         if (link.route === "/profile") link.route = `${link.route}/${userId}`;
 
         return (
-          <Link
-            href={link.route}
-            key={link.label}
-            className={`leftsidebar_link `}
-          >
+          <Link href={link.route} key={link.label} className={linkClassName}>
             {isActive ? link.iconFill : link.icon}
-            <p className='text-light-1 max-lg:hidden'>{link.label}</p>
+            <p className={pClassName}>{link.label}</p>
           </Link>
         );
       })}
-      <div className='pl-2'>
-        <CreatePostButton />
-      </div>
-    </div>
+    </>
   );
 }
