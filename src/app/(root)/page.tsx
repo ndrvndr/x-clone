@@ -1,7 +1,54 @@
-export default function Home() {
+import Pagination from "@/components/fragments/Pagination";
+import TweetCard from "@/components/fragments/TweetCard";
+import { fetchPosts } from "@/lib/actions/tweet.action";
+import { fetchUser } from "@/lib/actions/user.action";
+import { currentUser } from "@clerk/nextjs";
+import { redirect } from "next/navigation";
+
+export default async function Home({
+  searchParams,
+}: {
+  searchParams: { [key: string]: string | undefined };
+}) {
+  const user = await currentUser();
+  if (!user) return null;
+
+  const userInfo = await fetchUser(user.id);
+  if (!userInfo?.onboarded) redirect("/onboarding");
+
+  const result = await fetchPosts(
+    searchParams.page ? +searchParams.page : 1,
+    30
+  );
   return (
-    <div className='text-heading4-medium text-light-1 text-left font-bold hidden md:block'>
-      Home
-    </div>
+    <>
+      <section className='mt-[56px] md:mt-0 flex flex-col gap-10'>
+        {result.posts.length === 0 ? (
+          <p className='no-result'>No threads found</p>
+        ) : (
+          <>
+            {result.posts.map((post) => (
+              <TweetCard
+                key={post._id}
+                id={post._id}
+                currentUserId={user.id}
+                parentId={post.parentId}
+                content={post.text}
+                author={post.author}
+                community={post.community}
+                createdAt={post.createdAt}
+                comments={post.children}
+              />
+            ))}
+          </>
+        )}
+      </section>
+
+      <Pagination
+        path='/'
+        pageNumber={searchParams?.page ? +searchParams.page : 1}
+        isNext={result.isNext}
+      />
+    </>
   );
 }

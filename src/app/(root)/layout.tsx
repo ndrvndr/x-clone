@@ -7,10 +7,6 @@ import { ClerkProvider } from "@clerk/nextjs";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "../globals.css";
-import TweetModal from "@/components/fragments/TweetModal";
-import { currentUser } from "@clerk/nextjs";
-import { redirect } from "next/navigation";
-import { fetchUser } from "@/lib/actions/user.action";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,18 +20,10 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const user = await currentUser();
-  if (!user) return null;
-
-  const userInfo = await fetchUser(user.id);
-  if (!userInfo?.onboarded) redirect("/onboarding");
-
   return (
     <ClerkProvider>
       <html lang='en'>
         <body className={`${inter.className} bg-dark-1`}>
-          <TweetModal userId={userInfo._id.toString()} />
-
           <Topbar />
 
           <main className='flex flex-row max-w-7xl m-auto'>
@@ -43,7 +31,10 @@ export default async function RootLayout({
 
             <section className='main-container relative'>
               <div className='absolute bottom-24 right-4'>
-                <CreatePostButton displayMd='hidden' />
+                <CreatePostButton
+                  displayMd='hidden'
+                  position='fixed bottom-24 right-4'
+                />
               </div>
               <div className='w-full max-w-4xl'>{children}</div>
             </section>

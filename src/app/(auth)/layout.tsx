@@ -6,7 +6,7 @@ import "../globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "X App",
+  title: "Auth / X Clone",
   description: "A Next.js 13 X App Clone Formerly Twitter",
 };
 
