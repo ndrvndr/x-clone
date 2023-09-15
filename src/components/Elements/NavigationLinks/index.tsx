@@ -30,7 +30,11 @@ export default function NavigationLinks(props: NavigationLinksProps) {
         if (link.route === "/profile") link.route = `${link.route}/${userId}`;
 
         return (
-          <Link href={link.route} key={link.label} className={linkClassName}>
+          <Link
+            href={link.route}
+            key={link.label}
+            className={`${linkClassName} w-fit`}
+          >
             {isActive ? link.iconFill : link.icon}
             <p className={pClassName}>{link.label}</p>
           </Link>
