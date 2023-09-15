@@ -9,6 +9,8 @@ import {
   RiUserFill,
   RiUserLine,
 } from "react-icons/ri";
+import { FaRetweet, FaHashtag } from "react-icons/fa";
+import { BiMessageRoundedDetail } from "react-icons/bi";
 
 export const sidebarLinks = [
   {
@@ -71,9 +73,21 @@ export const bottombarLinks = [
 ];
 
 export const profileTabs = [
-  { value: "tweets", label: "Tweets", icon: "/assets/reply.svg" },
-  { value: "replies", label: "Replies", icon: "/assets/members.svg" },
-  { value: "tagged", label: "Tagged", icon: "/assets/tag.svg" },
+  {
+    value: "tweets",
+    label: "Tweets",
+    icon: <BiMessageRoundedDetail color='#5C5C7B' size={20} />,
+  },
+  {
+    value: "replies",
+    label: "Replies",
+    icon: <FaRetweet color='#5C5C7B' size={20} />,
+  },
+  {
+    value: "tagged",
+    label: "Tagged",
+    icon: <FaHashtag color='#5C5C7B' size={16} />,
+  },
 ];
 
 export const communityTabs = [
