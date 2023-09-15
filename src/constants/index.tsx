@@ -1,16 +1,20 @@
-import { BiGroup, BiSolidGroup } from "react-icons/bi";
 import {
-  RiHeartFill,
-  RiHeartLine,
+  BiGitPullRequest,
+  BiGroup,
+  BiMessageRoundedDetail,
+  BiSolidGroup,
+} from "react-icons/bi";
+import { FaHashtag, FaRetweet } from "react-icons/fa";
+import {
   RiHome7Fill,
   RiHome7Line,
+  RiInboxArchiveFill,
+  RiInboxArchiveLine,
   RiSearchFill,
   RiSearchLine,
   RiUserFill,
   RiUserLine,
 } from "react-icons/ri";
-import { FaRetweet, FaHashtag } from "react-icons/fa";
-import { BiMessageRoundedDetail } from "react-icons/bi";
 
 export const sidebarLinks = [
   {
@@ -26,10 +30,10 @@ export const sidebarLinks = [
     label: "Explore",
   },
   {
-    icon: <RiHeartLine color='white' size={24} />,
-    iconFill: <RiHeartFill color='white' size={24} />,
+    icon: <RiInboxArchiveLine color='white' size={24} />,
+    iconFill: <RiInboxArchiveFill color='white' size={24} />,
     route: "/activity",
-    label: "Activity",
+    label: "Inbox",
   },
   {
     icon: <BiGroup color='white' size={24} />,
@@ -59,10 +63,10 @@ export const bottombarLinks = [
     label: "Explore",
   },
   {
-    icon: <RiHeartLine color='white' size={24} />,
-    iconFill: <RiHeartFill color='white' size={24} />,
+    icon: <RiInboxArchiveLine color='white' size={24} />,
+    iconFill: <RiInboxArchiveFill color='white' size={24} />,
     route: "/activity",
-    label: "Activity",
+    label: "Inbox",
   },
   {
     icon: <BiGroup color='white' size={24} />,
@@ -91,9 +95,21 @@ export const profileTabs = [
 ];
 
 export const communityTabs = [
-  { value: "tweets", label: "Tweets", icon: "/assets/reply.svg" },
-  { value: "members", label: "Members", icon: "/assets/members.svg" },
-  { value: "requests", label: "Requests", icon: "/assets/request.svg" },
+  {
+    value: "tweets",
+    label: "Tweets",
+    icon: <BiMessageRoundedDetail color='#5C5C7B' size={20} />,
+  },
+  {
+    value: "members",
+    label: "Members",
+    icon: <BiGroup color='#5C5C7B' size={20} />,
+  },
+  {
+    value: "requests",
+    label: "Requests",
+    icon: <BiGitPullRequest color='#5C5C7B' size={20} />,
+  },
 ];
 
 export const footerLinks = [

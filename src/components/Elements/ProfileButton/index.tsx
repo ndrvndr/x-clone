@@ -2,25 +2,17 @@ import { OrganizationSwitcher, UserButton } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
 
 interface ProfileButtonProps {
-  userButtonBox?: string;
-  avatarBox?: string;
   showName: boolean;
 }
 
 export default function ProfileButton(props: ProfileButtonProps) {
-  const { userButtonBox, avatarBox, showName } = props;
+  const { showName } = props;
 
   return (
-    <div className='flex flex-row-reverse items-center gap-0'>
+    <div className='flex flex-row-reverse'>
       <OrganizationSwitcher
         appearance={{
           baseTheme: dark,
-          elements: {
-            organizationSwitcherTriggerIcon: "m-0",
-            userPreviewTextContainer: "hidden",
-            userPreviewAvatarContainer: "hidden",
-            organizationSwitcherTrigger: "p-0 m-0 gap-0",
-          },
         }}
       />
 
@@ -29,10 +21,6 @@ export default function ProfileButton(props: ProfileButtonProps) {
           afterSignOutUrl='/'
           appearance={{
             baseTheme: dark,
-            elements: {
-              userButtonBox: userButtonBox,
-              avatarBox: avatarBox,
-            },
           }}
           showName={showName}
         />

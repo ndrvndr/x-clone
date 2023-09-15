@@ -6,7 +6,7 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 
 export const metadata: Metadata = {
-  title: "Activity / X Clone",
+  title: "Inbox / X Clone",
   description: "A Next.js 13 X App Clone Formerly Twitter",
 };
 
@@ -27,7 +27,7 @@ export default async function Page() {
         {activity.length > 0 ? (
           <>
             {activity.map((activity) => (
-              <Link key={activity._id} href={`/thread/${activity.parentId}`}>
+              <Link key={activity._id} href={`/tweet/${activity.parentId}`}>
                 <article className='activity-card'>
                   <Image
                     src={activity.author.image}
@@ -40,7 +40,7 @@ export default async function Page() {
                     <span className='mr-1 text-primary-500'>
                       {activity.author.name}
                     </span>{" "}
-                    replied to your thread
+                    replied to your tweet
                   </p>
                 </article>
               </Link>

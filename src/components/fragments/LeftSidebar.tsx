@@ -19,11 +19,7 @@ export default function LeftSidebar() {
         </div>
       </div>
       <div className='px-6'>
-        <ProfileButton
-          userButtonBox='flex flex-row-reverse'
-          avatarBox='w-10 h-10'
-          showName={false}
-        />
+        <ProfileButton showName={false} />
       </div>
     </section>
   );
