@@ -1,11 +1,16 @@
-import { currentUser } from "@clerk/nextjs";
-import { redirect } from "next/navigation";
-
-import { fetchUser } from "@/lib/actions/user.actions";
-import { fetchCommunities } from "@/lib/actions/community.actions";
+import CommunityCard from "@/components/fragments/CommunityCard";
 import Pagination from "@/components/fragments/Pagination";
 import Searchbar from "@/components/fragments/Searchbar";
-import CommunityCard from "@/components/fragments/CommunityCard";
+import { fetchCommunities } from "@/lib/actions/community.actions";
+import { fetchUser } from "@/lib/actions/user.actions";
+import { currentUser } from "@clerk/nextjs";
+import { Metadata } from "next";
+import { redirect } from "next/navigation";
+
+export const metadata: Metadata = {
+  title: "Communities / X Clone",
+  description: "A Next.js 13 X App Clone Formerly Twitter",
+};
 
 export default async function Page({
   searchParams,

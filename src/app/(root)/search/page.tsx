@@ -1,10 +1,15 @@
-import { redirect } from "next/navigation";
-import { currentUser } from "@clerk/nextjs";
 import Pagination from "@/components/fragments/Pagination";
-
-import { fetchUser, fetchUsers } from "@/lib/actions/user.actions";
-import UserCard from "@/components/fragments/UserCard";
 import Searchbar from "@/components/fragments/Searchbar";
+import UserCard from "@/components/fragments/UserCard";
+import { fetchUser, fetchUsers } from "@/lib/actions/user.actions";
+import { currentUser } from "@clerk/nextjs";
+import { Metadata } from "next";
+import { redirect } from "next/navigation";
+
+export const metadata: Metadata = {
+  title: "Search / X Clone",
+  description: "A Next.js 13 X App Clone Formerly Twitter",
+};
 
 export default async function Page({
   searchParams,

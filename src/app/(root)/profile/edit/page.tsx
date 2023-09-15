@@ -1,7 +1,13 @@
-import { currentUser } from "@clerk/nextjs";
-import { redirect } from "next/navigation";
-import { fetchUser } from "@/lib/actions/user.actions";
 import AccountProfileForm from "@/components/fragments/AccountProfileForm";
+import { fetchUser } from "@/lib/actions/user.actions";
+import { currentUser } from "@clerk/nextjs";
+import { Metadata } from "next";
+import { redirect } from "next/navigation";
+
+export const metadata: Metadata = {
+  title: "Edit Profile / X Clone",
+  description: "A Next.js 13 X App Clone Formerly Twitter",
+};
 
 export default async function Page() {
   const user = await currentUser();

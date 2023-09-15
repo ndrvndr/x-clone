@@ -3,7 +3,13 @@ import TweetCard from "@/components/fragments/TweetCard";
 import { fetchTweetById } from "@/lib/actions/tweet.actions";
 import { fetchUser } from "@/lib/actions/user.actions";
 import { currentUser } from "@clerk/nextjs";
+import { Metadata } from "next";
 import { redirect } from "next/navigation";
+
+export const metadata: Metadata = {
+  title: "Tweets / X Clone",
+  description: "A Next.js 13 X App Clone Formerly Twitter",
+};
 
 export const revalidate = 0;
 

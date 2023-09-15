@@ -1,8 +1,14 @@
 import { fetchUser, getActivity } from "@/lib/actions/user.actions";
 import { currentUser } from "@clerk/nextjs";
+import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { redirect } from "next/navigation";
+
+export const metadata: Metadata = {
+  title: "Activity / X Clone",
+  description: "A Next.js 13 X App Clone Formerly Twitter",
+};
 
 export default async function Page() {
   const user = await currentUser();

@@ -4,7 +4,13 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { profileTabs } from "@/constants";
 import { fetchUser } from "@/lib/actions/user.actions";
 import { currentUser } from "@clerk/nextjs";
+import { Metadata } from "next";
 import { redirect } from "next/navigation";
+
+export const metadata: Metadata = {
+  title: "Profile / X Clone",
+  description: "A Next.js 13 X App Clone Formerly Twitter",
+};
 
 export default async function Page({ params }: { params: { id: string } }) {
   const user = await currentUser();
