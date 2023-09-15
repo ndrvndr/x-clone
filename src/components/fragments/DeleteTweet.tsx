@@ -1,6 +1,5 @@
 "use client";
 import { deleteTweet } from "@/lib/actions/tweet.actions";
-import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { RiDeleteBin7Fill } from "react-icons/ri";
 
