@@ -19,7 +19,7 @@ export default async function Page({ params }: { params: { id: string } }) {
   const tweet = await fetchTweetById(params.id);
 
   return (
-    <section className='relative mt-[56px]'>
+    <section className='relative mt-[56px] md:mt-0'>
       <div>
         <TweetCard
           id={tweet._id}

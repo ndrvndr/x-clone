@@ -20,10 +20,10 @@ const communitySchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
   },
-  threads: [
+  tweets: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Thread",
+      ref: "Tweet",
     },
   ],
   members: [

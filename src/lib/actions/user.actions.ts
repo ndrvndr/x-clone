@@ -64,7 +64,7 @@ export async function fetchUserPosts(userId: string) {
     connectToDB();
 
     const tweets = await User.findOne({ id: userId }).populate({
-      path: "tweet",
+      path: "tweets",
       model: Tweet,
       populate: [
         {
