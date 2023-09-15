@@ -1,7 +1,8 @@
 "use client";
-import { deleteTweet } from "@/lib/actions/tweet.action";
+import { deleteTweet } from "@/lib/actions/tweet.actions";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
+import { RiDeleteBin7Fill } from "react-icons/ri";
 
 interface Props {
   tweetId: string;
@@ -24,18 +25,18 @@ export default function DeleteTweet({
   if (currentUserId !== authorId || pathname === "/") return null;
 
   return (
-    <Image
-      src='/assets/delete.svg'
-      alt='delte'
-      width={18}
-      height={18}
-      className='cursor-pointer object-contain'
-      onClick={async () => {
-        await deleteTweet(JSON.parse(tweetId), pathname);
-        if (!parentId || !isComment) {
-          router.push("/");
-        }
-      }}
-    />
+    <>
+      <RiDeleteBin7Fill
+        color='red'
+        size={18}
+        onClick={async () => {
+          await deleteTweet(JSON.parse(tweetId), pathname);
+          if (!parentId || !isComment) {
+            router.push("/");
+          }
+        }}
+        className='cursor-pointer'
+      />
+    </>
   );
 }

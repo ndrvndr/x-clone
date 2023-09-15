@@ -9,7 +9,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Textarea } from "@/components/ui/textarea";
-import { createTweet } from "@/lib/actions/tweet.action";
+import { createTweet } from "@/lib/actions/tweet.actions";
 import { TweetValidation } from "@/lib/validations/tweet";
 import { useOrganization } from "@clerk/nextjs";
 import { zodResolver } from "@hookform/resolvers/zod";

@@ -1,5 +1,5 @@
 import PostTweet from "@/components/fragments/PostTweet";
-import { fetchUser } from "@/lib/actions/user.action";
+import { fetchUser } from "@/lib/actions/user.actions";
 import { currentUser } from "@clerk/nextjs";
 import { Metadata } from "next";
 import { redirect } from "next/navigation";

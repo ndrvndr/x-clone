@@ -77,7 +77,7 @@ export default function TweetCard({
             <div className={`${isComment && "mb-10"} mt-5 flex flex-col gap-3`}>
               <div className='flex gap-3.5'>
                 <RiHeartLine color='white' size={24} />
-                <Link href={`/thread/${id}`}>
+                <Link href={`/tweet/${id}`}>
                   <RiChat1Line color='white' size={24} />
                 </Link>
                 <RiShareForwardLine color='white' size={24} />
@@ -85,7 +85,7 @@ export default function TweetCard({
               </div>
 
               {isComment && comments.length > 0 && (
-                <Link href={`/thread/${id}`}>
+                <Link href={`/tweet/${id}`}>
                   <p className='mt-1 text-subtle-medium text-gray-1'>
                     {comments.length} repl{comments.length > 1 ? "ies" : "y"}
                   </p>
@@ -117,7 +117,7 @@ export default function TweetCard({
             />
           ))}
 
-          <Link href={`/thread/${id}`}>
+          <Link href={`/tweet/${id}`}>
             <p className='mt-1 text-subtle-medium text-gray-1'>
               {comments.length} repl{comments.length > 1 ? "ies" : "y"}
             </p>

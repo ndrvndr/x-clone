@@ -1,11 +1,16 @@
 "use client";
+import { updateUser } from "@/lib/actions/user.actions";
+import { useUploadThing } from "@/lib/uploadthing";
+import { isBase64Image } from "@/lib/utils";
 import { UserValidation } from "@/lib/validations/user";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Image from "next/image";
+import { usePathname, useRouter } from "next/navigation";
 import { ChangeEvent, useState } from "react";
 import { useForm } from "react-hook-form";
 import { BsImage } from "react-icons/bs";
 import * as z from "zod";
+import { Button } from "../ui/button";
 import {
   Form,
   FormControl,
@@ -16,11 +21,6 @@ import {
 } from "../ui/form";
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
-import { Button } from "../ui/button";
-import { isBase64Image } from "@/lib/utils";
-import { useUploadThing } from "@/lib/uploadthing";
-import { usePathname, useRouter } from "next/navigation";
-import { updateUser } from "@/lib/actions/user.action";
 
 interface AccounProfileFormProps {
   user: {

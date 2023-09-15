@@ -1,7 +1,7 @@
 import Pagination from "@/components/fragments/Pagination";
 import TweetCard from "@/components/fragments/TweetCard";
-import { fetchPosts } from "@/lib/actions/tweet.action";
-import { fetchUser } from "@/lib/actions/user.action";
+import { fetchPosts } from "@/lib/actions/tweet.actions";
+import { fetchUser } from "@/lib/actions/user.actions";
 import { currentUser } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 
